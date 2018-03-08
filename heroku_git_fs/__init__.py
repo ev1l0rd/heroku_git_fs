@@ -17,6 +17,7 @@ class HerokuGitFS:
         self.branch = branch
         self.repo = git.Repo.clone_from(url=remote_url, to_path=directory)
         print('Sucessfully initialized {0} from the git repo'.format(directory))
+        self.repo.git.remote(['rm', 'origin'])
         self.repo.git.checkout(['-B', branch])
         print('Checked out branch {0}'.format(self.branch))
 
