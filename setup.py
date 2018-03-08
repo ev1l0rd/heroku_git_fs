@@ -5,6 +5,6 @@ setup(name='heroku_git_fs',
       packages=['heroku_git_fs'],
       license='GNU GPLv3.0',
       install_requires=[
-          'PythonGit',
+          'GitPython',
       ],
       long_description=open('README.md').read())

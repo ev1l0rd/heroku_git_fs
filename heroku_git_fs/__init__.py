@@ -16,9 +16,9 @@ class HerokuGitFS:
         self.keep_history = keep_history
         self.branch = branch
         self.repo = git.Repo.clone_from(url=remote_url, to_path=directory)
-        print(f'Sucessfully initialized {directory} from the git repo')
+        print('Sucessfully initialized {0} from the git repo'.format(directory))
         self.repo.git.checkout(branch)
-        print(f'Checked out branch {self.branch}')
+        print('Checked out branch {0}'.format(self.branch))
 
     def commit(self, *, message: str = 'No message given.'):
         """
