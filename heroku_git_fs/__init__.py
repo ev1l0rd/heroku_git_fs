@@ -2,14 +2,18 @@ import git
 import getpass
 
 class HerokuGitFS:
-    def __init__(self, remote_url: str, directory: str, branch: str, keep_history: bool = False):
+    def __init__(self, remote_url, directory, branch, keep_history=False):
         """
         Initiate a new gitFS folder.
 
         :param branch: The branch to push and commit changes to
+        :type branch: String
         :param remote_url: The remote URL for the branch
+        :type remote_url: String
         :param directory: The directory to clone to
+        :type directory: String
         :param keep_history: If set to True, then the git repository will not be orphaned on each new commit.
+        :type keep_history: Boolean
         """
         self.remote_url = remote_url
         self.directory = directory
@@ -56,6 +60,7 @@ class HerokuGitFS:
     def update(self, username: str = getpass.getuser(), email: str ='dummy@email.com'):
         """
         Wrapper around commit and push.
+
         :param username: The name to commit with, defaults to the current user.
         :param email: The email to commit with, defaults to a dummy email.
         """
