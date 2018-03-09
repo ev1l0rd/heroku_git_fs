@@ -28,7 +28,7 @@ class HerokuGitFS:
         :param message: The commit message.
         """
         if not self.keep_history:
-            self.repo.git.checkout(['--orphan', 'temp', self.branch])
+            self.repo.git.checkout(['--orphan', 'temp'])
 
         self.repo.git.add('-A')
         self.repo.git.commit(['--message', message])
