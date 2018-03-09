@@ -33,7 +33,7 @@ class HerokuGitFS:
             self.repo.git.checkout(['--orphan', 'temp'])
 
         self.repo.git.config(['user.name', username])
-        self.repo.git.config(['user.email', password])
+        self.repo.git.config(['user.email', email])
         self.repo.git.add('-A')
         self.repo.git.commit(['--message', message])
 

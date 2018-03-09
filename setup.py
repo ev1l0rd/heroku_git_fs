@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='heroku_git_fs',
-      version='0.6dev',
+      version='0.7dev',
       packages=['heroku_git_fs'],
       license='GNU GPLv3.0',
       install_requires=[
