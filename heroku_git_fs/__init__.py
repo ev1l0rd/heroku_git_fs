@@ -1,5 +1,5 @@
 import git
-
+import getpass
 
 class HerokuGitFS:
     def __init__(self, remote_url: str, directory: str, branch: str, keep_history: bool = False):
@@ -21,15 +21,19 @@ class HerokuGitFS:
         self.repo.git.checkout(['-B', branch])
         print('Checked out branch {0}'.format(self.branch))
 
-    def commit(self, *, message: str = 'No message given.'):
+    def commit(self, message: str = 'No message given.', username: str = getpass.getuser(), email: str ='dummy@email.com'):
         """
         Create a new commit. If the keep_history attribute is set to False, the branch will be orphaned.
 
         :param message: The commit message.
+        :param username: The name to commit with, defaults to the current user.
+        :param email: The email to commit with, defaults to a dummy email.
         """
         if not self.keep_history:
             self.repo.git.checkout(['--orphan', 'temp'])
 
+        self.repo.git.config(['user.name', username])
+        self.repo.git.config(['user.email', password])
         self.repo.git.add('-A')
         self.repo.git.commit(['--message', message])
 
@@ -49,9 +53,11 @@ class HerokuGitFS:
         except Exception as e:
             raise e
 
-    def update(self):
+    def update(self, username: str = getpass.getuser(), email: str ='dummy@email.com'):
         """
         Wrapper around commit and push.
+        :param username: The name to commit with, defaults to the current user.
+        :param email: The email to commit with, defaults to a dummy email.
         """
-        self.commit()
+        self.commit(username=username, email=email)
         self.push()

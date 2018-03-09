@@ -1,10 +1,11 @@
 from setuptools import setup
 
 setup(name='heroku_git_fs',
-      version='0.4dev',
+      version='0.5dev',
       packages=['heroku_git_fs'],
       license='GNU GPLv3.0',
       install_requires=[
           'GitPython',
+          'getpass'
       ],
       long_description=open('README.md').read())
