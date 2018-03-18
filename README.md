@@ -1,5 +1,3 @@
 ## heroku_git_fs
 
-A python module/class to store data into a git repository.
-
-Originally made for Heroku's ephemeral filesystem.
+A python module/class to sync data to a git repository. Made for ephemeral filesystems.

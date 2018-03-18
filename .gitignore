@@ -1,2 +1,3 @@
 .idea
 docs/build
+heroku_git_fs/__pycache__
